@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Lunar Rover Localization
-description: Master's thesis, conducted with NASA Ames Research Center
+description: Master thesis, conducted with NASA Ames Research Center
 img: assets/img/sim.png
 importance: 1
 category: Highlights
