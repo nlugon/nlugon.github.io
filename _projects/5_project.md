@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
-category: fun
+title: Water Rocket
+description: Reusable rocket with parachute recovery
+img: assets/img/water_rocket.png
+redirect: https://github.com/nlugon/Water-Rocket
+importance: 4
+category: School Projects
 ---
 
 Every project has a beautiful feature showcase page.
