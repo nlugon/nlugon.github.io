@@ -4,7 +4,7 @@ title: 3D Vehicle Localization
 description: Applied Deep Learning Course
 img: assets/video/dlav.mp4
 redirect: https://github.com/nlugon/3dvehicule_localization_gr24
-importance: 5
+importance: 7
 category: School Projects
 giscus_comments: true
 ---

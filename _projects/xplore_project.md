@@ -3,7 +3,7 @@ layout: page
 title: Synthetic 6D pose dataset
 description: using Blender for robotic arm manipulation
 img: assets/img/xplore.png
-importance: 8
+importance: 9
 category: School Projects
 ---
 
