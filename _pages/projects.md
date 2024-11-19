@@ -5,7 +5,7 @@ permalink: /projects/
 description:  
 nav: true
 nav_order: 3
-display_categories: [Highlights, School Projects]
+display_categories: [Highlights, School Projects, Home Projects]
 horizontal: false
 ---
 
