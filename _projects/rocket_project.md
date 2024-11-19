@@ -2,7 +2,7 @@
 layout: page
 title: Water Rocket
 description: Reusable rocket with parachute recovery
-img: assets/img/water_rocket.png
+img: assets/img/rocket.gif
 redirect: https://github.com/nlugon/Water-Rocket
 importance: 8
 category: School Projects
