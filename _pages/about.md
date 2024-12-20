@@ -16,9 +16,11 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Dynamic and multidisciplinary Robotics Engineer with a strong foundation in robotic perception and state estimation. Currently been interning with the Intelligent Robotics Group at NASA Ames Research Center for 7 months and conducting research on lunar rover localization for the VIPER mission. Deeply passionate about UAVs, spacecrafts and space robotics. Eager to tackle complex challenges, and particularly love field testing and analyzing/visualizing data through statistical analysis. 
+Dynamic and multidisciplinary Robotics Engineer with a strong foundation in robotic perception and state estimation. Been interning with the Intelligent Robotics Group at NASA Ames Research Center for 8 months (April to December 2024) and conducting research on lunar rover localization for the VIPER mission. Deeply passionate about UAVs, spacecrafts and space robotics. Eager to tackle complex challenges, and particularly love field testing and analyzing/visualizing data through statistical analysis. 
 
 As of mid October 2024, successfully completed my master’s degree in Robotics with minor in Space Technologies at École Polytechnique Fédérale de Lausanne (EPFL) in Switzerland.
+
+As of December 2024, joined Metis Technology Solutions Inc. as a Systems Engineer to support aeronautics research at NASA Ames.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
