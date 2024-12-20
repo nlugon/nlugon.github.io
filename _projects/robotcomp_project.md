@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Interdisciplinary Robot Competition
+title: Robot Competition
 description: organized by EPFL
 img: assets/img/robot_comp_2.jpg
 importance: 2
