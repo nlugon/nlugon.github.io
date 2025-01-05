@@ -102,19 +102,41 @@
       // Create the map instance and set its initial view
       const map = L.map('map').setView([0, 0], 2); // [Lat, Lon], Zoom level
 
-      // Add OpenStreetMap tiles
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
+      // Tile layers for light and dark modes
+      const lightMode = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.carto.com/">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      });
+
+      const darkMode = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.carto.com/">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      });
+
+      // Add the default light mode to the map
+      lightMode.addTo(map);
 
       // GeoJSON data from the front matter
       const geojsonData = {{ page.geojson | jsonify }};
 
-      // Add GeoJSON data to the map with pop-ups
+      // Add GeoJSON data to the map with permanent tooltips (labels)
       L.geoJSON(geojsonData, {
+
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, {
+            radius: 8,                  // Marker size
+            fillColor: feature.properties.color, // Use the color property from GeoJSON
+            color: feature.properties.border_color,              // Marker border color (black)
+            weight: 2,                  // Border thickness
+            opacity: 1,                 // Border opacity
+            fillOpacity: 0.8            // Fill opacity
+          });
+        },
         onEachFeature: function (feature, layer) {
-          if (feature.properties && feature.properties.name) {
-            layer.bindPopup(feature.properties.name); // Bind pop-up with the name property
+          if (feature.properties && feature.properties.info) {
+            layer.bindPopup(feature.properties.info); // Bind pop-up with the name property
           }
           if (feature.properties && feature.properties.name) {
             layer.bindTooltip(feature.properties.name, { 
@@ -124,9 +146,17 @@
           }
         }
       }).addTo(map);
+
+      // Optional: Add a layer control to toggle between light and dark mode
+      const baseMaps = {
+        "Light Mode": lightMode,
+        "Dark Mode": darkMode
+      };
+      L.control.layers(baseMaps).addTo(map);
     });
   </script>
 {% endif %}
+
 
 
 <!-- diff2html -->
