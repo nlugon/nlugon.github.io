@@ -1,0 +1,50 @@
+---
+layout: post
+title: Mapping Space Exploration Sites
+date: 2024-01-26 17:57:00
+description: A GeoJSON map showing coordinates of exploration sites.
+tags: maps space Moon Mars
+categories: sample-posts
+map: true
+---
+
+In this post, we display three significant exploration sites from the Moon and Mars mapped to Earth coordinates. These sites are visualized using [GeoJSON](https://geojson.org/) and rendered with [Leaflet](https://leafletjs.com/).
+
+### Sites Displayed:
+1. **Apollo 11 Landing Site** - Moon
+2. **Perseverance Rover** - Mars
+3. **Curiosity Rover** - Mars
+
+Below is the GeoJSON code used to generate the map:
+
+````markdown
+```geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Apollo 11 - Moon Landing" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ -80.5, 27.4 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Perseverance Rover - Mars" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ -112.0, 18.4 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Curiosity Rover - Mars" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ -116.3, 23.5 ]
+      }
+    }
+  ]
+}
