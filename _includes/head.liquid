@@ -92,7 +92,42 @@
     integrity="{{ site.third_party_libraries.leaflet.integrity.css }}"
     crossorigin="anonymous"
   >
+  <script
+    src="{{ site.third_party_libraries.leaflet.url.js }}"
+    integrity="{{ site.third_party_libraries.leaflet.integrity.js }}"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Create the map instance and set its initial view
+      const map = L.map('map').setView([0, 0], 2); // [Lat, Lon], Zoom level
+
+      // Add OpenStreetMap tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      // GeoJSON data from the front matter
+      const geojsonData = {{ page.geojson | jsonify }};
+
+      // Add GeoJSON data to the map with pop-ups
+      L.geoJSON(geojsonData, {
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.name) {
+            layer.bindPopup(feature.properties.name); // Bind pop-up with the name property
+          }
+          if (feature.properties && feature.properties.name) {
+            layer.bindTooltip(feature.properties.name, { 
+              permanent: true,  // Always visible
+              direction: "right" // Position tooltip to the right of the marker
+            });
+          }
+        }
+      }).addTo(map);
+    });
+  </script>
 {% endif %}
+
 
 <!-- diff2html -->
 {% if page.code_diff %}
