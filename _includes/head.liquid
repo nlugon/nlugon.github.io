@@ -97,7 +97,16 @@
     integrity="{{ site.third_party_libraries.leaflet.integrity.js }}"
     crossorigin="anonymous"
   ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
+
+
+
   <script>
+    proj4.defs(
+      "urn:ogc:def:crs:IAU2000:49900",
+      "+proj=longlat +a=3396190 +b=3376200 +no_defs"
+    );
     document.addEventListener("DOMContentLoaded", function () {
       const earthMapId = "map";
       const marsMapId = "map-mars";
@@ -156,6 +165,7 @@
         };
         L.control.layers(baseMaps).addTo(map);
       } else if (document.getElementById(marsMapId)) {
+
         // Create the Mars map
         const marsTileLayer = L.tileLayer(
           "https://api.nasa.gov/mars-wmts/catalog/Mars_Viking_MDIM21_ClrMosaic_global_232m/1.0.0/default/default028mm/{z}/{y}/{x}.jpg",
@@ -164,11 +174,20 @@
             maxZoom: 8
           }
         );
+
+
         const mapMars = L.map(marsMapId, {
           center: [0, 0], // Centered on Mars
           zoom: 3,       // Default zoom level
-          layers: [marsTileLayer]
-        });
+        }
+        );
+
+
+
+        marsTileLayer.addTo(mapMars);
+
+
+
 
         // GeoJSON data for Mars
         const geojsonDataMars = {{ page.geojson | jsonify }};

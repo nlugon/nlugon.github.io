@@ -6,9 +6,16 @@ description: Description.
 tags: planetary landings geojson maps
 categories: space-exploration
 map: true
+published: false
 geojson:
   {
     "type": "FeatureCollection",
+    "crs": {
+      "type": "name",
+      "properties": {
+        "name": "urn:ogc:def:crs:IAU2000:49900"
+      }
+    },
     "features": [
       {
         "type": "Feature",

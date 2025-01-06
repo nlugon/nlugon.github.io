@@ -5,6 +5,7 @@ date: 2024-12-25 12:00:00
 description: Click refresh to discover a new random location to visit!
 tags: travel random locations
 categories: blog
+published: false
 map: true
 ---
 
