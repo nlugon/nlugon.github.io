@@ -75,6 +75,21 @@ Explore this selection of space and aerospace websites, offering tools, insights
 
 ---
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/zoom-website.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        <p class="text-muted mt-2" style="font-size: 0.9em;">
+            Image credit: <a href="https://zoom.earth" target="_blank">Zoom Earth</a>
+        </p>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <h3><a href="https://zoom.earth" target="_blank">Zoom Earth</a></h3>
+        <p>Offering near real-time satellite imagery, with a captivating view of global weather patterns, natural disasters, and other planetary phenomena.</p>
+    </div>
+</div>
+
+---
+
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -123,16 +138,20 @@ Explore this selection of space and aerospace websites, offering tools, insights
 
 ---
 
+
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/zoom-website.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/forest-watch2.png" class="img-fluid rounded z-depth-1" zoomable=true %}
         <p class="text-muted mt-2" style="font-size: 0.9em;">
-            Image credit: <a href="https://zoom.earth" target="_blank">Zoom Earth</a>
+            Image credit: <a href="https://www.globalforestwatch.org/map/" target="_blank">Global Forest Watch</a>
         </p>
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        <h3><a href="https://zoom.earth" target="_blank">Zoom Earth</a></h3>
-        <p>Offering near real-time satellite imagery, with a captivating view of global weather patterns, natural disasters, and other planetary phenomena.</p>
+        <h3><a href="https://www.globalforestwatch.org/map/" target="_blank">Global Forest Watch</a></h3>
+        <p>Visually engaging and interactive platform to monitor forest changes, deforestation, and fire alerts in real-time, for raising awareness about the impact of wildfires and environmental conservation efforts worldwide.</p>
     </div>
 </div>
+
+
 
