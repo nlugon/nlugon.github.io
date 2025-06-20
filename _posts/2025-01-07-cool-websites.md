@@ -136,6 +136,41 @@ Explore this selection of space and aerospace websites, offering tools, insights
     </div>
 </div>
 
+
+
+---
+
+
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/satnogs.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        <p class="text-muted mt-2" style="font-size: 0.9em;">
+            Image credit: <a href="https://db.satnogs.org" target="_blank">SatNOGS DB</a>
+        </p>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <h3><a href="https://db.satnogs.org" target="_blank">SatNOGS DB</a></h3>
+        <p>A global open-source database of satellite transmissions collected by amateur ground stations—browse frequencies, decode signals, and explore satellite metadata.</p>
+    </div>
+</div>
+
+---
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/leolabs.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        <p class="text-muted mt-2" style="font-size: 0.9em;">
+            Image credit: <a href="https://platform.leolabs.space/visualization" target="_blank">LeoLabs Visualization Platform</a>
+        </p>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <h3><a href="https://platform.leolabs.space/visualization" target="_blank">LeoLabs Visualization Platform</a></h3>
+        <p>Visualize satellites and space debris in low Earth orbit (LEO) in real-time—an essential tool for tracking and monitoring orbital traffic and collisions.</p>
+    </div>
+</div>
+
+
 ---
 
 
@@ -152,6 +187,5 @@ Explore this selection of space and aerospace websites, offering tools, insights
         <p>Visually engaging and interactive platform to monitor forest changes, deforestation, and fire alerts in real-time, for raising awareness about the impact of wildfires and environmental conservation efforts worldwide.</p>
     </div>
 </div>
-
 
 
