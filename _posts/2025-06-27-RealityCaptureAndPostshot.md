@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Google Earth Studio, Photogrammetry and Gaussian Splatting 
+title: Photogrammetry from Google Earth Studio
 date: 2025-06-27 10:00:00
 description: A quick experiment using Google Earth Studio, RealityCapture, and Jawset PostShot
 tags: photogrammetry gaussian-splatting nasa blender
@@ -9,79 +9,94 @@ thumbnail: assets/img/AmesWindTunnelSpiralShort.gif
 published: true
 ---
 
-Messing around with cinematic flyovers and 3D reconstruction tools to see what kind of mesh or splat model I could get. The goal: use **Google Earth Studio** to generate a video of a place I find cool (in this case, the **biggest wind tunnel in the world at NASA Ames**) and push it through **RealityCapture** and **Jawset PostShot**.
+I recently tested out **Google Earth Studio** and wondered how good of a tool it could be for **drone photogrammetry planning and previewing**. Prior to testing it out, I was also particularly interested in 3D printing small models of some of the cool infrastructure at NASA Ames, such as the **NFAC (largest wind tunnel in the world)**, and was looking into ways to obtain accurate 3D mesh data such as the data rendered in Google Earth. Figured it could be interesting to therefore use Google Earth Studio as a simulated 
 
----
 
-#### Step 1: Google Earth Studio – Access and Animation
+Getting set up and testing Google Earth Studio was fairly straightforward, and after generating a short animation I used **Reality Capture** to convert the animation into a texturized mesh, which could then be edited in Blender and then 3D printed. For fun I also input the animation into **Jawset Postshot** to get a gaussian splat, although given the lack of sky in the animation it didn't turn out great. Here's a quick overview of the steps and results.
 
-[Google Earth Studio](https://earth.google.com/studio/) is a browser-based animation tool from Google that lets you create cinematic flyovers of real-world landmarks. To access it:
 
-- Go to the [Google Earth Studio website](https://earth.google.com/studio/)
-- Click **Request Access** 
-- Wait a little for approval
 
-At the time of testing it felt fairly intuitive to use, although felt some aspects of the interface could be improved. I created a **spiral orbit animation** centered around the wind tunnel at NASA Ames Research Center.
+#### Step 1: Google Earth Studio
 
-{% include figure.liquid path="assets/img/AmesWindTunnelSpiralShort.gif" title="Google Earth Studio animation over NASA Ames wind tunnel" class="img-fluid rounded z-depth-1" zoomable=true %}
+[Google Earth Studio](https://www.google.com/earth/studio/) is a browser-based animation tool from Google that lets you create cinematic flyovers of real-world landmarks. It's pretty well documented with documentation [here](https://earth.google.com/studio/docs/). To access it:
+
+- Go to the [Google Earth Studio website](https://www.google.com/earth/studio/)
+- Click **Try Earth Studio** 
+- You'll most likely need a google email to continue, and fill in a form indicating what you wish to use Earth Studio for.
+
+I started by using the spiral orbit template, centered around the NFAC. I noticed that it's possible to import .kml files, which could mean being able to directly import flight paths which, but seems like importing the .kml files only support displaying paths or overlays in the render.
+
+
+{% include figure.liquid path="assets/img/GoogleEarthStudio1.png" title="GoogleEarthStudio1" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Google Earth Studio templates</p>
+
+
+{% include figure.liquid path="assets/img/GoogleEarthStudio2.png" title="GoogleEarthStudio1" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Google Earth Studio main interface</p>
+
+
+
 
 I let Google Earth Studio render and export the animation as a **.mp4 video**, which could be imported both in **RealityCapture** and **PostShot** directly.
 
----
+{% include figure.liquid path="assets/img/AmesWindTunnelSpiralShort.gif" title="Google Earth Studio animation over NASA Ames wind tunnel. Attribution: Google Earth, Vexcel Imaging US, Inc." class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Google Earth Studio animation over the NFAC at NASA Ames. Attribution: Google Earth, Vexcel Imaging US, Inc.</p>
 
-#### Step 2: From Video to Frames (Automatically)
 
-Here’s the convenient part: both **RealityCapture** and **Jawset PostShot** accept `.mp4` video files directly and internally extract individual frames for processing.
 
-This removes the need for tools like **FFmpeg**, though it’s good to know they exist. (For a different project, I’ve also used **VLC** to generate snapshots manually or with at a fixed frequency.)
+#### Step 2: RealityCapture
 
----
-
-#### Step 3: RealityCapture – From Images to Mesh
-
-In RealityCapture, I loaded the video, let it extract the frames, and ran the photogrammetry pipeline. It worked surprisingly well—even with Google Earth’s hybrid image data.
+In RealityCapture, I loaded the video, let it extract the frames (about 200 images), and ran the photogrammetry pipeline with pretty much default settings.
 
 {% include figure.liquid path="assets/img/AmesWindTunnel-RealityCapture.png" title="Photogrammetry result in RealityCapture" class="img-fluid rounded z-depth-1" zoomable=true %}
-<p class="text-muted text-center mt-2">The generated mesh of the wind tunnel structure at NASA Ames</p>
+<p class="text-muted text-center mt-2">Generated texturized mesh in Reality Capture</p>
 
 
-After texturing and simplifying, I exported the mesh in `.obj` format for further use.
-
----
-
-#### Step 4: Blender – Mesh Post-Processing
-
-RealityCapture meshes can look rough without cleanup. So I brought the model into **Blender** to adjust lighting, refine the geometry, and test out various render styles.
-
-{% include figure.liquid path="assets/img/AmesWindTunnel-Blender.png" title="Editing the photogrammetry mesh in Blender" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-This step isn’t necessary—but it’s fun, and gives you full control if you want to use the mesh in other scenes or visualizations.
+After texturing and simplifying, I exported the mesh in `.obj` format for post-editing in Blender.
 
 ---
 
-#### Step 5: Jawset PostShot – Trying Out Gaussian Splatting
+#### Step 3: Blender
 
-Next up was **PostShot**, which also handled the `.mp4` video directly and generated a **Gaussian Splat** rendering from its extracted frames.
+RealityCapture meshes can look rough without cleanup. So I brought the model into **Blender** to refine some of the geometry and make it shape it into a nice 3D printable model.
 
-While it doesn’t create a traditional mesh, the splat model is light, fast-loading, and visually smooth—perfect for web-based viewing or cinematic use.
+{% include figure.liquid path="assets/img/AmesWindTunnel-Blender2.png" title="Editing the photogrammetry mesh in Blender" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Post-editing with Blender</p>
 
-{% include figure.liquid path="assets/img/AmesWindTunnel-Postshot3.png" title="Gaussian Splat rendering in PostShot" class="img-fluid rounded z-depth-1" zoomable=true %}
+---
+
+#### Step 4: Orca Slicer
+
+Last step: slicing the refined model from Blender such that it can be 3D printed.
+
+{% include figure.liquid path="assets/img/AmesWindTunnel-Orca.png" title="Editing the photogrammetry mesh in Blender" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Preparing for 3D printing with Orca Slicer</p>
+
+---
+
+#### Extra: Jawset PostShot
+
+For extra fun I also input the animation into **PostShot**, which I used to generate a **Gaussian Splat** rendering from its extracted frames. I selected the splat3 radiance field profile to get a relatively quick preview and kept the default settings, with 150 images extracted. Looking at the results, one cool thing with Gaussian Splats is that the sky can be represented, which is something photogrammetry cannot do due to the sky's lack in trackable features. Given that the animation generated with Google Earth Studio included few camera angles that captured the sky, many sky regions remain unrepresented 
+
+{% include figure.liquid path="assets/img/AmesWindTunnel-Postshot.png" title="Gaussian Splat rendering in PostShot" class="img-fluid rounded z-depth-1" zoomable=true %}
+
 
 ---
 
 #### Final Thoughts
 
-Here comes a part where I need to defend why I tried generating meshes out of an animation of a structure that iteslf is a mesh. Even if not being real drone footage, **Google Earth Studio** seems to be a good tool for experimentation and for potentially previewing paths in preperation for taking a drone out to do photogrammetry. In this case it was also a fun way to generate a 3D model of the big wind tunnel, without flying an actual drone on site, which would require maybe a few approvals given its location. Turns out I also discovered real-world data for photogrammetry to play with hosted by [ESRI](https://www.esri.com/en-us/arcgis/products/arcgis-reality/resources/sample-drone-datasets), so might get on to that 
 
-Even without drone footage, tools like **Google Earth Studio** + **RealityCapture** or **PostShot** can let you somewhat practice building 3D reconstructions from scratch. I found quite interesting that the watermark in the video generated from Google Studio did not really show up in the mesh or gaussian splat results, suggesting both tools rejected it as a form of noise. I did also look up datasets for drone photogrammetry and they exist, consisting in images taken of real-world locations so could be worth experimenting with that.
+Google Earth Studio is a very cool and quite capable tool for generating flyover-type animations. Even without drone footage, tools like **Google Earth Studio** + **RealityCapture** or **PostShot** can let you somewhat practice building 3D reconstructions from scratch. I found quite interesting that the watermark in the video generated from Google Studio did not really show up in the mesh or gaussian splat results, suggesting both tools rejected it pretty welll as some form of noise. I did also find out that there are readily available image datasets for drone photogrammetry (such as those hosted by [ESRI](https://www.esri.com/en-us/arcgis/products/arcgis-reality/resources/sample-drone-datasets)), and if you don't currently have a drone these resources would be a lot more relevant for practicing tweaking best photogrammetry settings. 
+
+
 
 ---
 
 **Tools Used:**
 
-- [Google Earth Studio](https://earth.google.com/studio/)  
-- [RealityCapture](https://www.capturingreality.com/)  
-- [Jawset PostShot](https://www.jawset.com/postshot)  
+- [Google Earth Studio](https://www.google.com/earth/studio/)  
+- Reality Capture (Now [RealityScan](https://www.capturingreality.com/))
+- [Jawset PostShot](https://www.jawset.com)  
 - [Blender](https://www.blender.org/)  
 
 

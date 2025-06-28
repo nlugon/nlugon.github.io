@@ -7,7 +7,7 @@ tags: space aerospace websites
 categories: exploration
 thumbnail: assets/img/mars-trek-website.png
 published: true
-related_posts: false
+related_posts: true
 
 ---
 
