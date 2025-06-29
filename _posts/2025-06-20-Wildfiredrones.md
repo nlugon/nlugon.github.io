@@ -6,6 +6,8 @@ description: Understanding wildfires and how drones are making an impact
 tags: drones wildfire nasa aerospace
 categories: technology
 published: false
+
+
 ---
 
 Wildfires have become bigger, more destructive, and harder to deal with, and with this we need new tools and smarter coordination to keep up. That’s where drones come in—offering real-time insight, safer operations, and faster response when every second counts.
