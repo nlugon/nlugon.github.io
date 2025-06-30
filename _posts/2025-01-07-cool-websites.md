@@ -4,7 +4,7 @@ title: Space and Aerospace Websites to Check Out
 date: 2025-01-25 18:00:00
 description: A collection of websites related to space and aerospace.
 tags: space aerospace websites
-categories: exploration
+categories: space-exploration
 thumbnail: assets/img/mars-trek-website.png
 published: true
 related_posts: true
