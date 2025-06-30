@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ground Radar and ADS-B for BVLOS operations
+title: Ground Radar and ADS-B for BVLOS Operations
 date: 2025-06-28 8:00:00
 description: Validating a ground radar's accuracy and its importance for BVLOS drone operations
 tags: radar adsb drones air-traffic-control systems-engineering
@@ -88,4 +88,3 @@ This hybrid approach ensures that even if one layer fails—due to signal loss, 
 
 [Hidden Level](https://www.hiddenlevel.com/press/hidden-level-awarded-u-s-air-force-phase-1-sttr-contract)
 
----- 
