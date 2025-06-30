@@ -1,369 +1,187 @@
 ---
 layout: post
-title: Integrating Drones in Wildfire Fighting
+title: Integrating Drones into Wildfire Fighting
 date: 2025-06-20 10:00:00
-description: Understanding wildfires and how drones are making an impact
-tags: drones wildfire nasa aerospace
-categories: technology
-published: false
+description: Exploring how drone technologies and NASA’s ACERO initiative can enhance wildfire response.
+tags: drones wildfire emergency-response acero nasa
+categories: aerospace
+thumbnail: assets/img/nasa-acero1.png
+published: true
+---
+
+{% include figure.liquid path="assets/img/nasa-acero1.png" title="Wildfire Response with Drones" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Drones offer new ways to monitor, track, and support wildfire response operations. Credits: NASA</p>
+
+### 1. Introduction
+
+Wildfires are becoming **more frequent, larger in scale, and more destructive** than ever before. In 2024 alone, the U.S. saw nearly **65,000 wildfires** burn approximately **8.9 million acres**—one of the highest annual totals on record—and came just after the 2023 season, which burned 2.7 million acres. Meanwhile, wildfire suppression costs in 2023 reached **$2.7 billion**, contributing to over **$3.17 billion in total damages**. Beyond economic impacts, wildfires increasingly threaten lives, infrastructure, air quality, and can also exacerbate climate change through massive CO₂ emissions.
+
+
+#### 1.1 How Wildfires Work: The Fire Tetrahedron
+
+To understand how to fight wildfires, it helps to understand how they ignite and spread. The **fire tetrahedron** outlines the four key components required for fire:
+
+- **Heat**
+- **Fuel**
+- **Oxygen**
+- **Chemical chain reaction**
+
+Eliminating any one of these can suppress a fire. Traditional firefighting methods focus on removing fuel (e.g., controlled burns), reducing heat (e.g., blasting water), or preventing supply in oxygen and interfering with the chemical reaction (e.g., in part what fire retardants do).
+
+#### 1.2 State of the Art in Wildfire Response
+
+Current wildfire response involves a mix of satellite imaging, manned aircraft (like tankers and helicopters), ground crews, and predictive fire modeling. These methods offer valuable capabilities, but also face major **limitations**:
+
+- **Surveillance is infrequent** and often delayed
+- **Aircraft operations are limited** by daylight, visibility, and turbulence
+- **Communications infrastructure is inconsistent**, especially in remote areas
+- **Multiple agencies** must coordinate with different technologies
+
+NASA’s assessment with the U.S. Forest Service and other agencies confirmed these gaps. There’s a pressing need for **persistent surveillance**, **interoperable communications**, and **modern airspace management** to safely coordinate diverse aircraft, especially in chaotic emergency environments.
+
+#### 1.3 Where Drones Fit In
+
+Drones can help **fill critical gaps** in wildfire response:
+
+- They can fly **day or night**, even when visibility is poor
+- They offer **persistent aerial presence**, acting as “extra eyes” for command centers
+- They can be deployed rapidly for **search and rescue**, **emergency deliveries**, **mapping**, or **live monitoring**
+- They’re typically **less costly and easier to deploy** than manned aircraft
+
+Unlike manned aircraft, drones don’t depend on pilot availability or crew rest cycles. They can be automated, pre-positioned, and scaled across incidents. But to **safely integrate** drones into wildfire airspace—alongside helicopters, tankers, and manned spotter aircraft—we need new **technological frameworks and tools** for coordination.
+
+This is where NASA’s **ACERO project** steps in.
 
 
 ---
 
-Wildfires have become bigger, more destructive, and harder to deal with, and with this we need new tools and smarter coordination to keep up. That’s where drones come in—offering real-time insight, safer operations, and faster response when every second counts.
 
-But first, let’s quickly look at how wildfires start and how we currently fight them.
+{% include figure.liquid path="assets/img/nasa-acero2.png" title="NASA ACERO" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Advanced Capabilities for Emergency Response Operations (ACERO). Credits: NASA</p>
 
----
+### 2. Introducing ACERO: A New Framework for Aerial Wildfire Coordination
 
-<div class="row">
-  <div class="col-md-6">
-    {% include figure.liquid path="assets/img/fire-triangle.png" title="The Fire Triangle" class="img-fluid rounded z-depth-1" zoomable=true %}
-    <p class="text-muted text-center mt-2">The Fire Triangle: heat, fuel, and oxygen must all be present for a fire to ignite.</p>
-  </div>
-  <div class="col-md-6">
-    {% include figure.liquid path="assets/img/fire-tetrahedron.png" title="The Fire Tetrahedron" class="img-fluid rounded z-depth-1" zoomable=true %}
-    <p class="text-muted text-center mt-2">The Fire Tetrahedron: adds the chemical chain reaction needed to actually ignite and sustain combustion.</p>
-  </div>
-</div>
+To safely integrate drones into wildfire airspace, **NASA Ames Research Center** is leading the **Advanced Capabilities for Emergency Response Operations (ACERO)** project. ACERO addresses critical challenges in wildfire response by developing technologies for:
 
-<div class="text-center" style="max-width: 400px; margin: 1rem auto;">
-  {% include figure.liquid path="assets/img/fire-triangle.png" title="The Fire Triangle" class="img-fluid rounded z-depth-1" zoomable=true %}
-  <p class="text-muted mt-2">The Fire Triangle: heat, fuel, and oxygen must all be present.</p>
-</div>
+- **Wildfire airspace management**
+- **Resilient communications and surveillance**
+- **Coordinated operations of both manned and unmanned aircraft**
+- **Human-centered decision support systems**
 
-#### How Wildfires Start
+One impactful outcome of ACERO so far is the development of the **Portable Airspace Management System (PAMS)**.
 
-A fire needs three components to start:
+#### What is PAMS?
 
-- **Heat** (like from lightning, a spark, or even a hot engine)  
-- **Fuel** (dry leaves, grass, trees—you name it)  
-- **Oxygen** (plenty of it in the air around us)
+PAMS is a **rugged, field-deployable case** that houses all the essential tools a drone operator or mission supervisor needs that allow to safely coordinate drone operations during wildfire or emergency response efforts. The case includes:
 
-The combination of the three makes a **fire triangle**—and it’s a good rule of thumb: remove any one of the three, and the fire can’t keep going.
+- A computer with display and mission coordination software
+- Radios and networking gear for air-to-air and air-to-ground communication
+- Support for **real-time coordination between drones, helicopters, and command centers**
 
-That said, even when all three are present, a fire might not ignite right away. That’s because you also need enough energy for a **sustained chemical reaction**—what’s known as the fourth side in the **fire tetrahedron**. It’s that reaction that really kicks things off and sustains the fire.
+Its purpose is to allow **rapid, safe drone deployment in emergency scenarios**, without compromising **airspace safety**. During a wildfire, decisions must be made in seconds—not minutes. PAMS enables teams to:
 
-This is why dry vegetation, heat, and particularly wind make such a dangerous combo. Once a fire gets going, wind not only spreads the flames but also feeds it with more oxygen—turning a small spark into a fast-moving threat.
+- **Quickly obtain airspace clearance**
+- **Coordinate with manned aircraft crews**
+- **Avoid airspace conflicts between drones and other emergency aircraft**
 
----
+By making situational awareness tools **portable and self-contained**, PAMS ensures that small teams operating in the field have access to the same coordination tools previously only available in large command centers.
 
-#### When Fires Get Out of Hand
+#### Designed for Emergency Use
 
-Fires can start small—but in dry, windy conditions, they can spread fast. Once they grow too large to be put out directly, the focus shifts to **slowing it down** and protecting critical areas. That’s when it becomes about **containment**—cutting firebreaks, redirecting the fire, and buying time.
+In a wildfire, conditions evolve rapidly. PAMS was built with these challenges in mind:
 
----
+- **Fast deployment and boot-up**
+- **User-friendly interface** so responders can focus on the mission, not the tech
+- **Interoperable communication support**, accounting for the fact that multiple agencies (local, state, federal) may use different radios or protocols
 
-#### The Usual Playbook
-
-Fighting wildfires takes a combination of:
-
-- **Ground crews**, digging trenches and cutting fuel lines  
-- **Dozers**, creating wide paths the fire can’t cross  
-- **Backburns**, where small, controlled fires are lit to starve the wildfire of fuel  
-- **Aircraft**, dropping water or retardant and relaying situational awareness
-
-{% include figure.liquid path="assets/img/backburning.jpg" title="Controlled backburn being lit to stop the wildfire from spreading" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-Terrain and weather play a huge role—steep hills and high winds make everything harder. And while aircraft are powerful tools, they’re only effective when synced with what’s happening on the ground.
-
----
-
-{% include figure.liquid path="assets/img/air-ground-coordination.jpg" title="Aerial and ground firefighting crews working together" class="img-fluid rounded z-depth-1" zoomable=true %}
-
----
-
-That’s where **drones** can change the game.
-
-From spotting flare-ups early to navigating smoky skies where it’s too risky to send pilots, drones can fill critical gaps—and help first responders work faster, safer, and smarter.
-
-Let’s take a look at how they’re already being used—and how NASA’s ACERO project is helping turn that vision into reality.
-
----
-
-#### Drones Step In: NASA’s ACERO Project
-
-While firefighters and aircraft are doing everything they can on the ground and in the air, there’s still a big gap: visibility. Right now, planes and helicopters can’t safely fly at night or through thick smoke—meaning there are times when fires keep burning, but aircraft are grounded.
-
-NASA’s **ACERO project** (Advanced Capabilities for Emergency Response Operations) is working to change that.
-
-Led by NASA Ames in California, ACERO is developing tools to make wildfire response smarter, faster, and safer—starting with drones.
-
----
-
-#### Smarter Airspace = Safer Skies
-
-One of ACERO’s key technologies is the **Portable Airspace Management System (PAMS)**. It’s a suitcase-sized kit that gives drone pilots and fire crews a live picture of what’s happening in the air—even in rugged terrain or when cell service is spotty.
-
-With PAMS, crews can:
-
-- Track where every drone or aircraft is flying  
-- See shared fire zones and flight plans  
-- Avoid collisions—even in smoke or nighttime conditions
-
-This means drones can safely operate **24/7**, helping with aerial suppression, spotting flare-ups, delivering gear, or even setting controlled burns—all from the ground, without risking pilot lives.
-
-{% include figure.liquid path="assets/img/pams-drone-test.jpg" title="NASA testing PAMS during wildfire drone simulation in Salinas, CA (March 2025)" class="img-fluid rounded z-depth-1" zoomable=true %}
-
----
-
-#### Real-World Testing in California
-
-In March 2025, NASA put PAMS to the test in the mountains near Salinas, CA. Researchers simulated a wildfire response, flying drones and a vertical takeoff aircraft while coordinating everything using PAMS. Despite rough terrain and limited connectivity, the system worked—sharing flight data, managing routes, and helping coordinate multiple aircraft.
-
-Even Cal Fire officials were there to give feedback. They saw the potential of this system to **transform how aircraft are managed during wildfires**, especially when visibility is poor.
-
-> “We need every advantage possible when it comes to saving lives and property... and ACERO technology will give responders critical new tools.”  
-> —Carol Carroll, NASA Aeronautics Research
-
----
-
-#### What’s Next?
-
-ACERO isn’t stopping here. The team is working with government agencies, commercial partners like **Joby Aviation**, and wildfire crews to keep testing and improving these systems. The goal? Make drone support a **standard part of wildfire operations**—day or night, smoke or clear skies.
-
-By unlocking safer, more flexible air operations, NASA’s ACERO project is helping first responders do more—without putting more lives at risk.
-
----
-
-**Learn more**:  
-- [ACERO Overview – NASA](https://www.nasa.gov/feature/nasa-develops-new-tools-to-aid-wildfire-response)  
-- [March 2025 PAMS Test – NASA](https://www.nasa.gov/feature/acero-airspace-management-system-tested-in-salinas)
-
-
-
-**Sources:**
-
-- ["How California fights fires from the skies"](https://www.reuters.com/graphics/USA-WILDFIRES/FIREFIGHTING-AIRCRAFT/lgvdnzedkpo/), *Reuters Graphics / Cal Fire*
-- ["How Foresters Fight Wildfires"](https://wvforestry.com/how-foresters-fight-wildfires/), *West Virginia Division of Forestry*
-- [How California fights fires from the skies – Los Angeles Times / Reuters](https://www.reuters.com/graphics/USA-WILDFIRES/FIREFIGHTING-AIRCRAFT/lgvdnzedkpo/)
-[How California fights fires from the skies – Los Angeles Times / Reuters](https://www.reuters.com/graphics/USA-WILDFIRES/FIREFIGHTING-AIRCRAFT/lgvdnzedkpo/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Wildfires are no joke. In recent years, they’ve gotten bigger, more destructive, and harder to deal with. To really understand how we can fight them—and how drones might help—it’s worth looking at what makes a wildfire start in the first place.
-
----
-
-{% include figure.liquid path="assets/img/fire-triangle.png" title="The Fire Triangle" class="img-fluid rounded z-depth-1" zoomable=true %}
-*Fire needs three things: heat, fuel, and oxygen. Take away just one, and the fire dies out.*
-
-
-#### How Wildfires Start
-
-A fire needs three components to start:
-
-- **Heat** (like from lightning, a spark, or even a hot engine)  
-- **Fuel** (dry leaves, grass, trees—you name it)  
-- **Oxygen** (plenty of it in the air around us)
-
-The combination of the three makes a **fire triangle**—and it’s a good rule of thumb: remove any one of the three, and the fire can’t keep going.
-
-That said, even when all three are present, a fire might not ignite right away. That’s because you also need enough energy for a **sustained chemical reaction**—what’s known as the fourth side in the **fire tetrahedron**. It’s that reaction that really kicks things off and sustains the fire.
-
-This is why dry vegetation, heat, and particularly wind make such a dangerous combo. Once a fire gets going, wind not only spreads the flames but also feeds it with more oxygen—turning a small spark into a fast-moving threat.
-
-
-#### When Things Get Out of Hand
-
-At first, a fire might just be a small patch. If someone spots it early, it can usually get it under control. But if the fire isn’t caught quickly—or if it’s in a remote area—it can explode in size. At some point, the goal shifts from *putting it out* to just *keeping it from getting worse*.
-
-That’s when it’s all about **containment**: building firebreaks, slowing it down, and protecting towns, roads, or power lines.
-
-> Fires can go from manageable to unstoppable in minutes—so every second counts.
-
----
+In practice, PAMS functions like an **on-the-go UAS traffic control center**—helping drone pilots respond faster while maintaining visibility into a shared airspace environment. It’s not just about flying a drone—it’s about flying **safely**, in a space shared with crewed aircraft, multiple agencies, and unpredictable fire conditions.
 
 
 ---
 
-#### So, How Do We Actually Fight Wildfires?
+### 3. Conclusion: Demonstrations, Human Factors, and What Comes Next
 
-You might think the best way to fight a wildfire is to just spray a giant hose at it—but it’s way more complicated than that. Unlike house fires, wildfires can cover **hundreds or thousands of acres** of rugged, fast-changing terrain. You can’t just park a fire truck next to it and put it out.
+NASA’s ACERO team has already **demonstrated early versions of this technology** in the field—most notably in the rugged mountain ranges near **Monterey, California**. These flight exercises proved that drone coordination and wildfire airspace management can be executed more safely and efficiently using portable tools like PAMS.
 
-So instead, firefighters use a mix of **direct** and **indirect** strategies—and it all depends on how big the fire is, where it’s located, and what the weather conditions are.
+But this is just the beginning. Several key areas are now being improved and expanded:
 
----
+#### Human-Centered Interface Design
 
-### 🔥 Fighting Fire with Fire (Literally)
+When dealing with fast-changing emergencies, **ease of use is essential**. One major focus is refining the PAMS software interface to ensure:
 
-When a wildfire gets big, it often makes more sense to fight it *indirectly*. That means instead of going after the flames head-on, crews work around the fire to **remove its fuel**—so it has nowhere left to burn.
+- **Minimal training is needed**, even for first-time users
+- Interfaces are intuitive, clear, and reduce operator workload
+- Critical information is displayed with appropriate prioritization and clarity
 
-Here’s how that’s done:
+The goal is to make the system so easy and reliable that firefighters and drone operators **want to use it**—even under stress.
 
-- **Hand tools & chainsaws**: Crews carve out control lines by clearing brush and digging into the soil.
-- **Dozers**: Bulldozers create wide firebreaks that can stop the fire’s advance.
-- **Backburns**: Firefighters sometimes set small, controlled fires inside these containment lines (called *backfires*) to burn up the fuel in a controlled way—so when the main fire gets there, it runs out of stuff to burn.
+#### Flexible Communication Integration
 
-{% include figure.liquid path="assets/img/backburning.jpg" title="Controlled backburn being lit to stop the wildfire from spreading" class="img-fluid rounded z-depth-1" zoomable=true %}
+Wildfire response involves **many agencies**—fire departments, forest service, military, local law enforcement—each with their own tools and protocols. A current challenge is ensuring PAMS can **integrate a wide variety of communication systems**, including:
 
-It’s a slow and careful process, but one of the most effective ways to keep a fire from turning into a disaster.
+- VHF/UHF radios
+- LTE/cellular and SATCOM
+- Mesh networks and ground relays
 
----
+This level of flexibility is essential for **interoperability in the field** and is a key step toward making the technology widely adoptable.
 
-### 🧭 Terrain and Weather Matter. A Lot.
+#### Towards the Final PAMS Case
 
-Whether a fire is on flat ground or a steep hillside totally changes the game. Fires tend to **move faster uphill** because heat rises, and wind or dry conditions can make them even more unpredictable.
+The ACERO team is also working on a finalized version of the PAMS unit—one that is:
 
-That’s why fire crews scout the area first—to figure out where to set up containment lines and what resources they’ll need. If the fire’s small and conditions are good, they might try to hit it directly. But if it’s large and already making a run, it’s usually safer to go with an indirect approach.
+- **Rugged** enough for harsh environments
+- **Compact and easy to deploy**
+- **Modular**, so it can adapt to future technologies or mission types
 
----
+Ultimately, the vision is to **modernize aerial emergency response** using scalable, interoperable, and field-proven tools—empowering drone teams to operate **faster**, **safer**, and **more effectively**, even in the most challenging conditions.
 
-### 🚁 When Aircraft Join the Fight
 
-Aircraft are a huge help—but they’re not the entire solution. Planes and helicopters don’t “put out” the fire. What they really do is **slow it down** or steer it away from homes, roads, or fire crews. That buys time for ground teams to do their work safely.
+### 4. Sidenote: Drone Incursions during Wildfires
 
-There are a few different types of aircraft:
+{% include figure.liquid path="assets/img/wildfiredroneincursions.png" title="Drone Incursions During Wildfires (2025)" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Sidenote-the problem of incursive drones. Credits: National Interagency Fire Center</p>
 
-- **Helicopters**: Great for dropping water, moving firefighters, or doing rescues in tough terrain.
-- **Tanker planes**: Drop red fire retardant in front of the fire to slow its progress.
-- **Tactical planes**: Fly above everything to help coordinate where drops should happen.
+As of **May 14, 2025**, there have already been **18 reported drone incursions** during active wildfire incidents. Every single one of these incidents **disrupted or delayed aerial firefighting operations**, putting lives and property at risk. 
 
-Cal Fire, for example, has one of the largest aerial firefighting fleets in the world. But even they say aircraft only work when coordinated closely with what’s happening on the ground.
-
-{% include figure.liquid path="assets/img/air-ground-coordination.jpg" title="Aerial and ground firefighting crews working together" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-So yes—aircraft are powerful tools. But it’s really the **team effort** between the air and ground that makes the difference.
+When an unidentified drone not involved in response efforts (i.e. there to capture dramatic footage) is spotted near a wildfire, **firefighting aircraft must be grounded immediately**. Pilots cannot risk a midair collision with an unknown UAV. These delays cost critical time, slow containment efforts, and can allow fires to grow unchecked.
 
 ---
 
+### 5. Extra: Portable Ground Radars for Increased Awareness and Safety
 
-#### Fighting Fires from the Sky: A Closer Look at Aerial Firefighting
+As the ACERO project progresses, one next step is the deployment of **portable ground-based radar systems** at the wildfire response perimeter. These systems would:
 
-When it comes to wildfires, ground crews do a ton of the heavy lifting—but some of the most dramatic and essential work happens in the air. Planes and helicopters play different roles, but they all work together to help slow down and contain fires so ground teams can do their jobs safely.
+- Track and manage **authorized drones and crewed aircraft**
+- Detect and geolocate **unauthorized or rogue drones** in real-time
+- Support **safer and more scalable airspace operations** in high-tempo emergencies
 
----
+This approach not only improves **situational awareness**, but also supports enforcement and safety—helping incident commanders take swift action if a drone threatens operations. Additional sidenote: foreshaddowing for a next blog post.
 
-### 🛩️ Tactical Aircraft – The Air Traffic Controllers of Wildfires
 
-Let’s start with the tactical planes. These aren’t the ones doing water drops—they’re more like air traffic controllers in the sky.
 
-Cal Fire mostly uses old military **OV-10 “Bronco”** planes for this job. They fly above the fire for hours, watching everything that’s going on and helping direct tankers and helicopters where they’re needed most. These planes can even act as **“lead planes”**, flying in first to guide larger tankers to the right drop zone.
 
-They’re fast, nimble, and stay in the air much longer than the tankers that need to land and refill every run. Without these guys, things in the sky would get chaotic pretty fast.
 
----
 
-### 🚒 Tanker Planes – Laying Down the Red Lines
+### Sources
 
-Next up are the **tankers**—these are the aircraft that actually drop fire retardant or water. 
+- [National Interagency Fire Center (NIFC) – Wildfire Statistics](https://www.nifc.gov/fire-information/statistics/wildfires)
 
-Cal Fire’s workhorse here is the **Grumman S-2T**, a smaller ex-Navy plane that can carry about 1,200 gallons (around 4,500 liters) of retardant. These planes are quick, and because they can refill while their engines are still running (“hot loading”), they’re back in the air in just minutes.
+- [NIFC – Federal Firefighting Costs (Suppression Only)](https://www.nifc.gov/fire-information/statistics/suppression-costs)
 
-The S-2Ts are great for **initial attacks**—getting to a fire early and keeping it from spreading. They usually drop retardant **in front of** the fire to slow it down or steer it away from homes, roads, or fire crews. That red stuff you see in photos? That’s the line they drop.
+- [First Street Foundation – 5th National Risk Assessment: Fueling the Flames](https://report.firststreet.org/5th-National-Risk-Assessment-Fueling-the-Flames.pdf)
 
-{% include figure.liquid path="assets/img/s2t-drop.jpg" title="A Cal Fire S-2T drops fire retardant to slow down a wildfire" class="img-fluid rounded z-depth-1" zoomable=true %}
+- [NASA ACERO (Advanced Capabilities for Emergency Response Operations)](ttps://www.nasa.gov/directorates/armd/aosp/acero-wildfire/)
 
----
+- [Tactical Fire Remote Sensing Advisory Committee (TFRSAC) Bi-Annual Meeting and Aeronautics Research Mission Directorate (ARMD) Wildfire Management Workshop](https://nari.arc.nasa.gov/events/tfrsac-wildfire) (+ [slides and videos](https://nari.arc.nasa.gov/sites/default/files/attachments/Spring%202021%20TFRSAC%20Agenda%20with%20Presentation%20Links%20FINAL%2006012021.pdf))
 
-### ✈️ Large and Very Large Air Tankers – The Heavy Hitters
+- [NASA Wildfire Management Workshop Report – Stakeholder Needs, Gaps, and Technology Opportunities](https://nari.arc.nasa.gov/sites/default/files/attachments/NASA%20ARMD%20WILDFIRE%20MANAGEMENT%20WORKSHOP_6.1.2021_v13.pdf)
 
-For big fires, Cal Fire and other agencies bring out the big guns: Large Air Tankers (LATs) and Very Large Air Tankers (VLATs). These are usually old commercial jets that have been converted into flying fire trucks.
-
-Here are some of the big names:
-
-- **MD-87 and BAe 146** – Mid-size jet tankers that carry over 11,000 liters of retardant.
-- **C-130 “Hercules”** – A legendary military cargo plane that can carry around 15,000 liters.
-- **DC-10** – A monster of a plane that can drop 35,000+ liters in one go.
-- **747 Supertanker** (now retired) – This beast could unload nearly 68,000 liters (that’s like dumping 56 helicopter buckets in one pass!).
-
-These planes don’t mess around. They’re used when a fire is out of control and there’s a need to lay down **massive lines of retardant** in one sweep. The downside? They take longer to refill and need longer runways.
-
-{% include figure.liquid path="assets/img/dc10-drop.jpg" title="A DC-10 drops a massive line of retardant during a wildfire" class="img-fluid rounded z-depth-1" zoomable=true %}
+- [US Forest Service – Fire Operations and Interagency Coordination Reports](https://www.fs.usda.gov/managing-land/fire)
 
 ---
 
-### 🚁 Helicopters – The Workhorses of the Sky
 
-Helicopters are super versatile. They can:
+### Image Credits
 
-- Drop water or retardant
-- Transport firefighters and gear
-- Perform rescue missions
-- Fly at night
-- Operate in places planes can’t
-
-Cal Fire’s fleet includes the **Bell UH-1H “Super Huey”**, which carries around 1,200 liters in a bucket, and the newer **Sikorsky S-70i Black Hawk**, which can drop heavier loads and fly night missions.
-
-There are also private helicopters like the **AW139** and **Sikorsky S-76** out flying missions too. On a big fire day, you might see a dozen or more helicopters looping from lakes or tanks to the fireline, over and over again.
-
----
-
-### ✈️ Super Scoopers – The Water Chasers
-
-Then there’s a special kind of aircraft called **“Super Scoopers”** (like the Bombardier CL-415). These planes **skim across lakes or the ocean** to refill their tanks, then fly back and dump water over the fire. It’s like a real-life video game: scoop, fly, drop, repeat.
-
-These aircraft are especially useful near coastal or lake-heavy areas, like around LA or Northern California. During the Palisades Fire, two Canadian Super Scoopers made **dozens of back-to-back water runs**, scooping from the Pacific and dropping it over flames just minutes later.
-
-{% include figure.liquid path="assets/img/super-scooper.jpg" title="A CL-415 Super Scooper refills with water from a nearby lake" class="img-fluid rounded z-depth-1" zoomable=true %}
-
----
-
-### 🚁 When It All Comes Together
-
-All of these aircraft—tactical planes, tankers, helicopters, Super Scoopers—are part of a coordinated air show, working in sync with ground crews. The tactical planes direct the operation from above, while tankers lay down lines and helicopters do precision work. Some tankers even fly **eight or more missions a day**.
-
-Without this aerial support, many wildfires would spread far faster, especially in steep or hard-to-reach terrain.
-
----
-
-**Reference**: [How California fights fires from the skies – Los Angeles Times / Reuters](https://www.reuters.com/graphics/USA-WILDFIRES/FIREFIGHTING-AIRCRAFT/lgvdnzedkpo/)
-
-
-### 🏠 When Fires Get Close to People
-
-If homes or buildings are in the fire’s path, protecting those structures becomes priority number one. Crews may clear brush, lay down retardant, or even wrap buildings in heat-resistant material. Helicopters and tankers might fly in to defend these areas too.
-
-It all depends on what’s happening on the ground. Firefighters are constantly making judgment calls about where to act first, based on safety, resources, and weather.
-
----
-
-In short: fighting wildfires is part science, part muscle, and part strategy. It takes coordination across dozens (sometimes hundreds) of people—from crews digging lines in the dirt, to pilots flying through smoke, to weather experts watching the forecast.
-
----
-
-**Sources:**
-
-- ["How California fights fires from the skies"](https://www.reuters.com/graphics/USA-WILDFIRES/FIREFIGHTING-AIRCRAFT/lgvdnzedkpo/), *Reuters Graphics / Cal Fire*
-- ["How Foresters Fight Wildfires"](https://wvforestry.com/how-foresters-fight-wildfires/), *West Virginia Division of Forestry*
-
-
-
-
-
-
-
-
-
-
-
-
-#### How We Fight Wildfires Today
-
-There’s a lot that goes into firefighting. You’ve probably seen clips of helicopters dumping water or big planes spraying red fire retardant. But there’s more:
-
-- **Ground teams** cut paths through vegetation and dig trenches to stop the fire from spreading.
-- **Helicopters and planes** fly over to drop water or retardant, especially where it’s too dangerous to send people.
-- **Smokejumpers** (yes, that’s a real thing) parachute into hard-to-reach areas to start fighting the fire on the ground.
-
-{% include figure.liquid path="assets/img/firefighting-aircraft.jpg" title="Aerial firefighting aircraft dropping retardant" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-All of this is coordinated from command centers that keep track of where the fire’s heading, where crews are, and what weather is on the way. It's a massive team effort—and even with all that, some fires are just too fast or unpredictable.
-
----
-
-That’s where drones come in.
+- [NASA](https://www.nasa.gov/directorates/armd/aosp/acero-wildfire/)
+- [NIFC](https://www.nifc.gov)
