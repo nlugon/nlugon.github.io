@@ -1,16 +1,17 @@
 ---
 layout: post
-title: Drone Flight Time Calculator
+title: Drone Design Tools
 date: 2025-07-08 10:00:00
-description: Estimate drone flight time based on motor and battery parameters
+description: Drone Flight Time Calculator
 tags: drones tools flight-time battery
 categories: drone-tools
-published: false
+thumbnail: assets/img/drone-design-1.png
+published: true
 chart:
   chartjs: true
 ---
 
-Drones need to balance performance, weight, and endurance. This calculator allows you to input design values and simulate flight time across battery capacities.
+This first and simplistic tool simulates flight time across battery capacities, given multiple drone design parameters. More to come.
 
 ---
 
@@ -156,6 +157,3 @@ function plotFlightTime() {
 // Plot immediately on page load
 document.addEventListener("DOMContentLoaded", plotFlightTime);
 </script>
-
-
-

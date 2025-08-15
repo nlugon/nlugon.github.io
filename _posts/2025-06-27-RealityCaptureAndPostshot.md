@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Practicing Photogrammetry with Google Earth Studio
+title: Photogrammetry with Google Earth Studio
 date: 2025-06-27 10:00:00
-description: A quick experiment using Google Earth Studio, RealityCapture, and Jawset PostShot
+description: Simulating drone imagery with Google Earth Studio and generating a 3D model with RealityCapture
 tags: photogrammetry gaussian-splatting nasa blender
 categories: graphics
 thumbnail: assets/img/AmesWindTunnelSpiralShort.gif

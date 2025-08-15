@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 
 Multidisciplinary engineer wildly passionate about drones, robotics, and space.
 
-M.S. in Robotics with Minor in Aerospace and Space at EPFL (Switzerland). B.S. in Mechatronics (also EPFL) with 1-year academic exchange at University of Waterloo (Canada). Specialization in robotic perception and localization. Both actively contributed to or led for multiple student projects, including EPFL’s robot competition, EPFL’s mars rover student design team Xplore, and multiple other semester projects from drone autonomy to satellite imagery processing (Feel free to check out my personal website!)
+M.S. in Robotics with Minor in Aerospace and Space at EPFL (Switzerland). B.S. in Mechatronics (also EPFL) with 1-year academic exchange at University of Waterloo (Canada). Specialization in robotic perception and localization. Both actively contributed to or led for multiple student projects, including EPFL’s robot competition, EPFL’s mars rover student design team Xplore, and multiple other semester projects from drone autonomy to satellite imagery processing.
    
 Interned with NASA’s lunar rover VIPER for 8 months (April 2024-December 2024). Developed a novel pipeline that improves camera-based localization in challenging lighting environments, with over 50% decrease in localization error. 
    
