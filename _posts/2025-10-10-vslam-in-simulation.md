@@ -6,7 +6,7 @@ description: "As described in title."
 tags: vslam slam simulation isaac-sim usd photogrammetry fisheye apriltag imu
 categories: robotics
 thumbnail: assets/img/vslam-sim-thumb.jpg
-published: true
+published: false
 ---
 
 # Testing VSLAM in simulation

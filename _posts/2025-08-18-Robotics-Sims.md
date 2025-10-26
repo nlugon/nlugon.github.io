@@ -6,7 +6,7 @@ description: A critical, practical guide to today’s robotics & UAV simulators
 tags: robotics drones simulation autonomy ros usd omniverse unreal unity cesium mujoco gazebo webots isaac-sim airsim pybullet habitat carla
 categories: robotics
 thumbnail: assets/img/flightgoggles.png
-published: true
+published: false
 ---
 
 

@@ -6,7 +6,7 @@ description: Drone Flight Time Calculator
 tags: drones tools flight-time battery
 categories: drone-tools
 thumbnail: assets/img/drone-design-1.png
-published: true
+published: false
 chart:
   chartjs: true
 ---
