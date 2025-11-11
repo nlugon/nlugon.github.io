@@ -9,7 +9,10 @@ thumbnail: assets/img/skydio-feature-tracking.png
 published: true
 ---
 
-Cameras are an incredibly powerful and important sensor for robotics, as they provide a way to perceive the world in a very similar way we do, using our eyes. Wherever there is a light source, a camera provides a very rich and dense amount of information, from which can not only be recognized what different elements are inside of an environment (object recognition), but also determined where you are located inside of the environment (localization), and how the environemt is structured (3D reconstruction/mapping). 
+{% include figure.liquid path="assets/img/skydio-feature-tracking.png" title="Skydio Feature Tracking" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Source: Skydio</p>
+
+Cameras are an incredibly powerful and important sensor for robotics, as they provide a way to perceive the world in a very similar way we do, using our eyes. Wherever there is a light source, a camera provides a very rich and dense amount of information, from which can not only be recognized what different elements are inside of an environment (object recognition), but also from which can be determined your location inside of the environment (localization), and determined the environment's 3D structured (3D reconstruction/mapping). 
 
 Especially when dealing with sequences of images (i.e. videos/live camera feed), the amount of information to process becomes extremely large, and multiple methods and techniques should be known to process all of the data efficiently, particularly if this needs to be processed in real-time and on computation-limited setups. One great resource I came accross is Cyrill Stachniss' Photogrammetry YouTube lecture series, which goes through all fundamentals of cameras and camera data processing, from image smoothing to visual SLAM. So here are some compact notes on the concepts he covers in each of his lectures, which provide an overview and refresher of all core topics.
 
@@ -484,12 +487,12 @@ Inference is linear algebra with nonlinearities between layers.
 - **Rigid transform:** $$ X_c = R X_w + t $$.  
 - **Homogeneous form:**
 
-\begin{equation}
+$$\begin{equation}
 \begin{bmatrix}X_c\\1\end{bmatrix}
 =
 \begin{bmatrix}R & t\\ 0 & 1\end{bmatrix}
 \begin{bmatrix}X_w\\1\end{bmatrix}.
-\end{equation}
+\end{equation}$$
 
 **Suggested figures**  
 - Rotation+translation block matrix with axes annotations.  
@@ -500,14 +503,14 @@ Inference is linear algebra with nonlinearities between layers.
 - **Affine/sensor mapping:** principal point $$ (x_H, y_H) $$, pixel scales $$ m_x,m_y $$, shear $$ s $$.  
 - **Calibration matrix** $$ K $$:
 
-\begin{equation}
+$$\begin{equation}
 K=\begin{bmatrix}
 \alpha_x & s & x_H \\
 0 & \alpha_y & y_H \\
 0 & 0 & 1
 \end{bmatrix},
 \quad \alpha_x = c\,m_x,\ \alpha_y=c\,m_y.
-\end{equation}
+\end{equation}$$
 
 **Suggested figures**  
 - From image plane to pixel coordinates with shift/scale/shear.  
