@@ -1,18 +1,19 @@
 ---
 layout: post
-title: Photogrammetry Learning Roadmap - Part 1
+title: Photogrammetry Fundamentals - Part 1
 date: 2025-10-26 8:00:00
-description: Resources for fundamentals on Computer Vision, Vision-Based Localization and 3D Reconstruction
+description: Summary notes on Computer Vision, Vision-Based Localization and 3D Reconstruction
 tags: camera photogrammetry computer-vision slam visual-odometry
 categories: robotics
 thumbnail: assets/img/skydio-feature-tracking.png
-published: false
+published: true
 ---
 
+Cameras are an incredibly powerful and important sensor for robotics, as they provide a way to perceive the world in a very similar way we do, using our eyes. Wherever there is a light source, a camera provides a very rich and dense amount of information, from which can not only be recognized what different elements are inside of an environment (object recognition), but also determined where you are located inside of the environment (localization), and how the environemt is structured (3D reconstruction/mapping). 
 
-Cameras are key in a very wide variety of fields including robotics, augmented reality, and 3D mapping. Fundamentally, cameras measure light intensities over a large array of pixels, which is an efficient way to capture rich information about the world. With the right algorithms, this turns into geometry, motion, and semantics—fueling perception for robots and building machine-interpretable models of reality.
+Especially when dealing with sequences of images (i.e. videos/live camera feed), the amount of information to process becomes extremely large, and multiple methods and techniques should be known to process all of the data efficiently, particularly if this needs to be processed in real-time and on computation-limited setups. One great resource I came accross is Cyrill Stachniss' Photogrammetry YouTube lecture series, which goes through all fundamentals of cameras and camera data processing, from image smoothing to visual SLAM. So here are some compact notes on the concepts he covers in each of his lectures, which provide an overview and refresher of all core topics.
 
-Below is a practical roadmap I’m writing for myself (and anyone else) to learn and quickly refresh the core ideas.
+
 
 ## On this page
 - [Chapter 1 — Introduction to Photogrammetry](#chapter-1--introduction-to-photogrammetry)
@@ -33,13 +34,10 @@ Below is a practical roadmap I’m writing for myself (and anyone else) to learn
 
 # Chapter 1 — Introduction to Photogrammetry
 
-**Definition.** Estimate **geometry** and **semantics** of objects from **images** (or similar sensors).  
-**Core tasks.** Camera **poses**, **3D reconstruction**, **data association**, **detection/segmentation**, **semantic interpretation**.
-
 **Why cameras?** Contact-free, dense/cheap/fast capture; human-interpretable; supports dynamics & real-time.  
-**Limits.** Needs light; measures directional intensity only; occlusions; 3D→2D projection loses depth; other sensors may be more precise.
+**Limits.** Needs light; measures directional intensity only; occlusions; loss of depth information with 3D to 2D projection; other sensors may be more precise.
 
-**Key idea.** An **image point defines a 3D ray**. Multiple views → **triangulation**.  
+**Key idea.** A camera measures light intensities accross a large array of pixels. Each pixel corresponds to a direction at which the light ray(s) entered the camera  
 **Pipelines.** *Forward:* object → physics → intrinsics/extrinsics → image. *Inverse:* images + models + priors → object geometry/semantics.  
 **Algorithms are central.** Sensors ≈ eyes; estimation ≈ brain → implement methods.
 
@@ -573,22 +571,14 @@ K=\begin{bmatrix}
 ---
 
 ## References
+- C. Stachniss, *Photogrammetry I + II* (Uni Bonn) — lecture slides & video series - https://www.ipb.uni-bonn.de/teaching/index.html
 - Förstner & Wrobel, *Photogrammetric Computer Vision*.  
-- Förstner, *Photogrammetrie I Skriptum*.  
 - Szeliski, *Computer Vision: Algorithms and Applications* (Springer, 2010).  
 - Alpaydin, *Introduction to Machine Learning* (2009).  
 - Hartley & Zisserman, *Multiple View Geometry in Computer Vision* (2004).  
 - Goodfellow, Bengio, Courville, *Deep Learning*.  
 - Nielsen, *Neural Networks and Deep Learning* (online book).  
-- Zhang, “A Flexible New Technique for Camera Calibration,” MSR‑TR‑98‑71.  
-- C. Stachniss, *Photogrammetry I + II* (Uni Bonn) — lecture slides & video series.
-
-
-
-More resources: https://www.ipb.uni-bonn.de/teaching/index.html
-
-
-
-Source of thumbnail image: https://www.slideshare.net/slideshow/introduction-to-simultaneous-localization-and-mapping-slam-a-presentation-from-skydio/242533355
+- Zhang, “A Flexible New Technique for Camera Calibration,” MSR‑TR‑98‑71. 
+- Thumbnail image source: https://www.slideshare.net/slideshow/introduction-to-simultaneous-localization-and-mapping-slam-a-presentation-from-skydio/242533355
 
 
