@@ -1,159 +1,90 @@
 ---
 layout: post
-title: Drone Design Tools
+title: Optimized Drone Design
 date: 2025-07-08 10:00:00
-description: Drone Flight Time Calculator
+description: Design a quadcopter given a desired minimum payload mass and minimum flight time
 tags: drones tools flight-time battery
 categories: drone-tools
-thumbnail: assets/img/drone-design-1.png
-published: false
-chart:
-  chartjs: true
+thumbnail: assets/img/drone-design/hovertime-vs-capacity.png
+published: true
 ---
 
-This first and simplistic tool simulates flight time across battery capacities, given multiple drone design parameters. More to come.
 
----
+{% include figure.liquid path="assets/img/drone-design/hovertime-vs-capacity.png" title="Optimized Quadcopter Design" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Hover Time vs Battery Capacity for different battery types and number of cells. This plot was obtained from applying fairly simplistic physics to large combinations of different propellers, motors and battery specifications (with fairly realistic catalogs of propellers, motors and batteries being synthetically generated with AI).</p>
 
-### Input Parameters
+## 1) Goal
 
+**Design a quadcopter** that satisfies:
+- **Payload** ≥ target (g)
+- **Flight time** ≥ target (min)
+- **Total mass** ≤ limit (g)
+- **Total cost** ≤ budget (USD)
 
-<form id="droneForm">
-<style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .grid-item {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .grid-item label {
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  input[type=number] {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-</style>
-
-<div class="grid-container">
-  <div class="grid-item">
-    <label>Energy Density (Wh/kg):</label>
-    <input type="number" id="energy_density" value="200" step="10" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>C-Rating:</label>
-    <input type="number" id="c_rating" value="25" step="1" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>Voltage per Cell (V):</label>
-    <input type="number" id="v_per_cell" value="3.7" step="0.1" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>Number of Cells (S):</label>
-    <input type="number" id="num_cells" value="4" step="1" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>Propeller Diameter (inches):</label>
-    <input type="number" id="prop_diam" value="5" step="0.1" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>Propeller Pitch (inches):</label>
-    <input type="number" id="prop_pitch" value="4.5" step="0.1" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>Motor KV (RPM/Volt):</label>
-    <input type="number" id="kv" value="900" step="10" oninput="plotFlightTime()">
-  </div>
-  <div class="grid-item">
-    <label>Dry Mass of Drone (kg):</label>
-    <input type="number" id="dry_mass" value="1.2" step="0.1" oninput="plotFlightTime()">
-  </div>
-</div>
-</form>
+**Output:** Feasible configurations (propeller, motor, battery) with hover/max/burst metrics & plots. Among these configurations, find an optimal solution that also takes into account other factors (agility, thrust-to-weight ratio, average battery discharge rate, ...)
 
 ---
 
-### Flight Time vs Battery Capacity
+## 2) Approach
 
-<canvas id="flightChart" width="600" height="400"></canvas>
+### 2.1 Simplifying problem
+- Each component affects the other components -> not so straightforward to just come up with an analytical formula. So one idea would be to simulate the performance of a large amount of combination of different components, and do some data analysis to figure out what combinations best meet our requirements.
+- Main components we consider for design: **propellers**, **motors**, **battery**.
+- Pretty much ignore everything else (can set an approximate mass for frame, wiring, avionics, ... based on the propeller size).
+- Assume **4 rotors** (quadcopter).
 
-<script>
-function estimateThrustPerMotor(kv, voltage, prop_diam, prop_pitch) {
-  const rpm = kv * voltage;
-  const diameter_mm = prop_diam * 25.4;
-  const thrust = 4e-15 * Math.pow(rpm, 2) * Math.pow(diameter_mm, 4.3) * Math.pow(prop_pitch, -1.3);
-  return thrust / 9.81;
-}
+### 2.2 Datasets (synthetic but realistic)
+Use AI to generate plausible catalogs of:
 
-function plotFlightTime() {
-  const energyDensity = parseFloat(document.getElementById("energy_density").value);
-  const cRating = parseFloat(document.getElementById("c_rating").value);
-  const voltagePerCell = parseFloat(document.getElementById("v_per_cell").value);
-  const numCells = parseInt(document.getElementById("num_cells").value);
-  const propDiam = parseFloat(document.getElementById("prop_diam").value);
-  const propPitch = parseFloat(document.getElementById("prop_pitch").value);
-  const kv = parseFloat(document.getElementById("kv").value);
-  const dryMass = parseFloat(document.getElementById("dry_mass").value);
+- **Propellers**: diameter (5–33″), pitch, blades, mass, inertia, **thrust vs RPM** curve, unit cost.
+- **Motors**: size (e.g., 1404–7215), KV, Kt, mass, nominal/max currents, voltage range, acceptable prop diameter range, cost.
+- **Batteries**: capacity (mAh), cells (S), C‑rating, chemistry (LiPo/Li‑ion), mass, cost.
 
-  const totalVoltage = voltagePerCell * numCells;
-  const thrustPerMotor = estimateThrustPerMotor(kv, totalVoltage, propDiam, propPitch);
-  const totalThrust = thrustPerMotor * 4;
+Files are JSON: `propellers.json`, `motors.json`, `batteries.json`.
 
-  const batteryCapacities = [...Array(50).keys()].map(i => (i + 5) * 100);
-  const flightTimes = [];
+### 2.3 Algorithm (simplified): Find combinations that satisfy requirements
+For each (prop, motor, battery) combination:
 
-  batteryCapacities.forEach(capacity => {
-    const energyWh = (capacity / 1000) * totalVoltage;
-    const batteryMass = energyWh / energyDensity;
-    const totalMass = dryMass + batteryMass;
+TODO
 
-    const powerPerKg = 150;
-    const totalPower = totalMass * powerPerKg;
-    const timeHours = energyWh / totalPower;
-    const timeMinutes = timeHours * 60;
 
-    flightTimes.push(timeMinutes);
-  });
 
-  const ctx = document.getElementById('flightChart').getContext('2d');
-  if (window.flightChartInstance) window.flightChartInstance.destroy();
+---
 
-  window.flightChartInstance = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: batteryCapacities,
-      datasets: [{
-        label: 'Flight Time (minutes)',
-        data: flightTimes,
-        borderColor: 'rgba(0, 123, 255, 1)',
-        backgroundColor: 'rgba(0, 123, 255, 0.1)',
-        fill: true,
-        tension: 0.3
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { position: 'top' },
-        title: { display: true, text: 'Flight Time vs Battery Capacity' }
-      },
-      scales: {
-        x: { title: { display: true, text: 'Battery Capacity (mAh)' } },
-        y: { title: { display: true, text: 'Flight Time (minutes)' }, min: 0 }
-      }
-    }
-  });
-}
+## 3) Results
 
-// Plot immediately on page load
-document.addEventListener("DOMContentLoaded", plotFlightTime);
-</script>
+
+
+TODO
+
+{% include figure.liquid path="assets/img/drone-design/hovertime-vs-capacity.png" title="Optimized Quadcopter Design" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Hover Time vs Battery Capacity for different battery types and number of cells. Note that this plot relies on multiple simplified assumptions and also relies on specs for props/motors/batteries that were synthetically generated (prompted to be as realistic as possible, but may can differ to current off-the-shelf parts).</p>
+
+{% include figure.liquid path="assets/img/drone-design/twr-vs-capacity.png" title="Optimized Quadcopter Design" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Thrust-to-Weight ratio vs Battery Capacity for different battery types and number of cells.</p>
+
+
+### Discussion
+
+#### Aspects that look good/make sense:
+- Liion batteries lead to longer flight times that LiPo (expected)
+- Higher cell-count seems to lead to longer flight times. Note that higher cell-count should also mean more heavy drone, which would then decrease the flight time, 
+- A too large battery capacity actually ends up in decreased flight time compared to a smaller capacity battery (too much weight which the current prop/motor/battery configuration may no longer be good for)
+
+
+
+---
+
+## 4) Next steps
+
+
+### Improvements needed for current approach:
+- Replace synthetic entries with actual vendor data and also keep track of links and part availability.
+- Add more complexity in the physics to take into account non-linear battery drainage, motor I₀, winding resistance Rₘ, ESC efficiency, wiring drops, ... 
+
+### Broaden application
+- **Multicopters**: generalize rotor count (tri, hexa, octo), consider having two propellers above each other (the turbulent air on the propeller below will lead to less generated thrust)
+- **VTOL / Fixed‑wing**: add aerodynamic power & propulsive efficiency vs airspeed.
+
+
+---
