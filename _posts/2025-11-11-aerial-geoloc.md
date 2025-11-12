@@ -9,7 +9,7 @@ thumbnail: assets/img/aerial-geoloc/aerial-geoloc-ges.png
 published: true
 ---
 
-# Generating data with Google Earth Studio
+## 1. Generating data with Google Earth Studio
 
 {% include figure.liquid path="assets/img/aerial-geoloc/aerial-geoloc-ges.png" title="Generating Aerial Imagery with Google Earth Studio" class="img-fluid rounded z-depth-1" zoomable=true %}
 <p class="text-muted text-center mt-2">Generating Aerial Imagery with Google Earth Studio.</p>
@@ -27,22 +27,57 @@ published: true
 <p class="text-muted text-center mt-2">Some image pre-processing methods.</p>
 
 
-# Relative Localization with Visual Odometry
+## 2. Relative Localization with Visual Odometry
 
 {% include figure.liquid path="assets/img/aerial-geoloc/orb-keypoints.png" title="ORB keypoints" class="img-fluid rounded z-depth-1" zoomable=true %}
-<p class="text-muted text-center mt-2">ORB keypoint extraction.</p>
+<p class="text-muted text-center mt-2">ORB feature extraction.</p>
 
-Find distinct features in each image which can then be compared and matched with features in next images.
+> Find distinct features in each image which can then be compared and matched with features in next images.
 
 
 {% include figure.liquid path="assets/img/aerial-geoloc/keypoint-matches.png" title="Keypoint matching" class="img-fluid rounded z-depth-1" zoomable=true %}
-<p class="text-muted text-center mt-2">Matching corresponding keypoints accross consecutive frames.</p>
+<p class="text-muted text-center mt-2">Matching keypoints accross consecutive frames.</p>
 
 
-# Absolute Localization from Satellite Imagery
+## 3. Absolute Localization from Satellite Imagery
 
 {% include figure.liquid path="assets/img/aerial-geoloc/copernicus-browser.png" title="Copernicus browser" class="img-fluid rounded z-depth-1" zoomable=true %}
-<p class="text-muted text-center mt-2">Download satellite imagery through Copernicus browser.</p>
+<p class="text-muted text-center mt-2">Download satellite imagery through the Copernicus browser.</p>
+
+
+> Idea: assuming we approximately know the size (in meters) of the area covered by the field of view of the onboard camera, divide the Sentinel-2 satellite data into small tiles, for each of which we'll run template matching with the aerial image.
+
+
+{% include figure.liquid path="assets/img/aerial-geoloc/satimg-cut.png" title="Small Tiles" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Satellite data cut into small tiles.</p>
+
+
+{% include figure.liquid path="assets/img/aerial-geoloc/satimg-cut-samples.png" title="Sample cut tiles" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Sample cut tiles.</p>
+
+
+
+{% include figure.liquid path="assets/img/aerial-geoloc/geoloc-test1.png" title="First results" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Results: correct solution appears within top 12 candidates, but not the best based on the template matching score.</p>
+
+> Idea: Use ORB keypoints to find the correct satellite tile.
+
+
+{% include figure.liquid path="assets/img/aerial-geoloc/test2-withorb.png" title="With ORB" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Testing the top 20 candidates with ORB feature matching, we end up with the correct solution.</p>
+
+{% include figure.liquid path="assets/img/aerial-geoloc/test2-withorb2.png" title="With ORB" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">ORB matching features after RANSAC.</p>
+
+{% include figure.liquid path="assets/img/aerial-geoloc/test2-withorb3.png" title="With ORB" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Comparision of metrics with other candidatese.</p>
+
+{% include figure.liquid path="assets/img/aerial-geoloc/test2-withorb4.png" title="With ORB" class="img-fluid rounded z-depth-1" zoomable=true %}
+<p class="text-muted text-center mt-2">Location of solution tile on full satellite imag.</p>
+
+Note: we see here that this is likely not a robust solutions, as other incorrect solutions are not far behind in terms of the number of ORB keypont inliers. It should also be tested how robust this approach is for changes in heading, altered terrain in parts of the area, altered lighting conditions, altered color due to seasons, ... The full satellite imagery here is also relatively small, although we can assume in the case of drones that we can already have a reasonably close initial guess on gps location. The approach tested here is by no means the best, but is a fun project to test out different computer vision concepts. 
+
+
 
 
 
