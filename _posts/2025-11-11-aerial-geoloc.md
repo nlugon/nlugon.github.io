@@ -5,13 +5,15 @@ date: 2025-11-11 10:00:00
 description: Using aerial imagery generated with Google Earth Studio to test drone localization.
 tags: drones robotics autonomy localization gps
 categories: robotics
-thumbnail: assets/img/aerial-geoloc/aerial-geoloc-ges.png
+thumbnail: assets/video/aerial-img-ges2.mp4
 published: true
 ---
 
 ## 1. Generating data with Google Earth Studio
 
 {% include figure.liquid path="assets/img/aerial-geoloc/aerial-geoloc-ges.png" title="Generating Aerial Imagery with Google Earth Studio" class="img-fluid rounded z-depth-1" zoomable=true %}
+
+{% include video.liquid path="assets/video/aerial-img-ges2.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true %}
 <p class="text-muted text-center mt-2">Generating Aerial Imagery with Google Earth Studio.</p>
 
 
